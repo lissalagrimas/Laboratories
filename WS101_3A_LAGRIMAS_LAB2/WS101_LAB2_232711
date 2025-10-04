@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESUME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header>
+    <h1>LISSA MAE B. LAGRIMAS</h1>
+    <img src="id.jpeg" alt="profile" width="150" height="150">
+  </header>
+
+  <section>
+    <h2>ABOUT ME</h2>
+    <hr>
+    <p>
+      My name is Lissa Mae B. Lagrimas, hajshdjaydiawsdjagkhsajbdsdbasjgduisciabsadbsgduasaidsabwnbagdsasjkdbad
+    </p>
+  </section>
+
+  <section>
+    <h2>AWARDS / CERTIFICATIONS</h2>
+    <hr>
+    <ul>
+      <li>COMPUTER LITERACY</li>
+      <li>CSS NCII PASSER</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>SKILLS</h2>
+    <hr>
+    <p>waray</p>
+  </section>
+
+  <section>
+    <h2>WORK EXPERIENCE</h2>
+    <hr>
+    <p>N/A</p>
+  </section>
+
+  <section>
+    <h2>EDUCATION</h2>
+    <hr>
+    <h3>PRIMARY</h3>
+    <p>Makiwalo Elementary School</p>
+
+    <h3>SECONDARY</h3>
+    <p>Saint Anthony Academy (2017-2020)</p>
+    <p>Pambujan National High School (2020-2023)</p>
+
+    <h3>TERTIARY</h3>
+    <p>University of Eastern Philippines (2023-Present)</p>
+  </section>
+
+</body>
+</html>

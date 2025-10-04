@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>University Course Catalog</title>
+</head>
+<body>
+  <h1>University Course Catalog</h1>
+  <h2>College of Science</h2>
+
+  <section>
+    <h3>All Courses</h3>
+    <div id="course-list"></div>
+  </section>
+
+  <section>
+    <h3>Filter by Program</h3>
+    <select id="department-filter">
+      <option value="All">All</option>
+      <option value="BSIT">BSIT</option>
+      <option value="BSChemistry">BSChemistry</option>
+      <option value="BSMath">BSMath</option>
+      <option value="BSBio">BSBio</option>
+      <option value="BSMarineBio">BSMarineBio</option>
+    </select>
+    <ul id="filtered-list"></ul>
+    <p><strong>Total Credits for Program:</strong> <span id="program-credits">0</span></p>
+  </section>
+
+  <section>
+    <h3>Grouped by Credit Range</h3>
+    <div id="grouped-courses"></div>
+  </section>
+
+  <section>
+    <h3>Async Fetch</h3>
+    <button id="fetch-btn">Fetch New Courses</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
