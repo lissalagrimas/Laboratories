@@ -1,52 +1,50 @@
 package com.lagrimas.lab_7.service;
 
 import com.lagrimas.lab_7.model.Product;
+import com.lagrimas.lab_7.repository.ProductRepository;
 import org.springframework.stereotype.Service;
-
-import jakarta.annotation.PostConstruct;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
 
-    private final Map<Long, Product> products = new ConcurrentHashMap<>();
-    private final AtomicLong idCounter = new AtomicLong(0);
+    private final ProductRepository productRepository;
 
-    @PostConstruct
-    public void init() {
-        create(new Product(null, "Laptop Pro", 1299.99));
-        create(new Product(null, "Wireless Mouse", 29.99));
-        create(new Product(null, "Mechanical Keyboard", 89.99));
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
+    // Get all products from DB
     public List<Product> findAll() {
-        return new ArrayList<>(products.values());
+        return productRepository.findAll();
     }
 
+    // Get one product by ID
     public Optional<Product> findById(Long id) {
-        return Optional.ofNullable(products.get(id));
+        return productRepository.findById(id);
     }
 
+    // Save/Create product to DB
     public Product create(Product product) {
-        Long id = idCounter.incrementAndGet();
-        Product saved = new Product(id, product.getName(), product.getPrice());
-        products.put(id, saved);
-        return saved;
+        return productRepository.save(product);
     }
 
-    public Optional<Product> update(Long id, Product product) {
-        Product existing = products.get(id);
-        if (existing == null) {
-            return Optional.empty();
-        }
-        existing.setName(product.getName());
-        existing.setPrice(product.getPrice());
-        return Optional.of(existing);
+    // Update product in DB
+    public Optional<Product> update(Long id, Product productDetails) {
+        return productRepository.findById(id).map(existingProduct -> {
+            existingProduct.setName(productDetails.getName());
+            existingProduct.setPrice(productDetails.getPrice());
+            return productRepository.save(existingProduct);
+        });
     }
 
+    // Delete product from DB
     public boolean delete(Long id) {
-        return products.remove(id) != null;
+        if (productRepository.existsById(id)) {
+            productRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
